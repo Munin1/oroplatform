@@ -1,23 +1,6 @@
 #!/bin/sh
 
 RUNMODE=$1 # install or run
-INSTALL_VERSION="4.1.3"
-
-#DB_USER="root"
-#DB_PASSWORD="rootpw"
-#DB_NAME="oro"
-
-#APP_HOST="10.0.0.1"
-#ORGNAME="Oro Inc"
-#APP_USER="admin"
-#APP_PASSWORD="qwertz"
-#APP_USER_EMAIL="admin@local"
-#USER_FIRST_NAME="Bob"
-#USER_LAST_NAME="Dylan"
-#APP_LOAD_DEMO_DATA="n"
-
-echo "$APP_PASSWORD $APP_USER"
-
 
 if [ -d "/var/www/html/oroapp" ]; then
     echo "App seems to be installed already. At least the files already exist in /var/www/html/oroapp. Hence, we are skipping install process."
@@ -29,8 +12,7 @@ then
     sleep 30
 
     echo "Entering install mode"
-echo "$APP_HOST $ORGNAME"
-#    rm -rf /var/www/html/oroapp
+
     cp -r /opt/oroapp /var/www/html
     cd /var/www/html/oroapp
 
