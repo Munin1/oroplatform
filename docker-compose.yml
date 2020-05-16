@@ -25,6 +25,7 @@ services:
       - DB_USER=root
       - DB_PASSWORD=rootpw
       - DB_NAME=oro
+      - DB_HOST=mysql
       - APP_HOST=example.org
       - ORGNAME="Oro Inc"
       - APP_USER=admin

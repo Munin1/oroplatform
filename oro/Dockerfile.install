@@ -6,7 +6,7 @@ FROM	ubuntu:20.04
 ENV	DEBIAN_FRONTEND=noninteractive
 ENV	TZ=Europe/Berlin
 
-RUN	apt-get update && apt-get upgrade && \
+RUN	apt-get update && apt-get upgrade -y && \
 	apt-get install -y \
 	nginx \
 	php php-cli php-fpm php-pdo php-mysqlnd php-xml php-soap php-gd php-mbstring php-zip php-intl php-opcache php-curl \
