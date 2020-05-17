@@ -18,7 +18,7 @@ services:
       - mysql
     restart: always
     volumes:
-      - ./html:/var/www/html
+#      - ./html:/var/www/html
       - ./oro/docker-entrypoint.sh:/docker-entrypoint.sh
     environment:
       - INSTALL_VERSION=4.1.3
@@ -34,7 +34,7 @@ services:
       - USER_FIRST_NAME=Bob
       - USER_LAST_NAME=Dylan
       - APP_LOAD_DEMO_DATA=n
-    command: ["sh", "/docker-entrypoint.sh", "install"]
+    command: ["sh", "/docker-entrypoint.sh", "update"]
 
   mysql:
     image: mysql:5.7
