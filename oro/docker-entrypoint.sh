@@ -31,7 +31,7 @@ fi # End install
 
 if [ "$RUNMODE" = "update" ]; then
 
-    sleep 30
+    sleep 10
     echo "Entering update mode"
 
     cp -r /opt/oroapp /var/www/html
@@ -41,8 +41,11 @@ if [ "$RUNMODE" = "update" ]; then
     rm -rf var/cache/prod
     
     # update code
-    php ./bin/console oro:platform:update --env=prod --force --skip-assets
-    nice --adjustment=-15 php ./bin/console oro:assets:install --env=prod --timeout 50000 --verbose
+    echo "installing..."
+    php -d memory_limit=2g ./bin/console oro:platform:update --env=prod --force --skip-assets
+
+    echo "building and installing assets"
+    php -d memory_limit=2g ./bin/console oro:assets:install --env=prod --timeout 5000 -n
     
     # update parameters.yml
     sed -i "s/    installed:              ~/    installed:              '$(date --iso-8601=seconds)'/g" config/parameters.yml
