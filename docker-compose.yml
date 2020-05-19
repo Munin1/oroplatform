@@ -13,7 +13,7 @@ services:
   oro:
     build:
       context: ./oro
-      dockerfile: Dockerfile.install
+      dockerfile: Dockerfile.oro
     depends_on:
       - mysql
     restart: always

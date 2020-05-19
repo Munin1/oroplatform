@@ -158,4 +158,5 @@ oro_attachment:
         - image/png
 
 oro_asset:
-    npm_install_timeout: 3600
+    npm_install_timeout: 0
+    build_timeout: 0

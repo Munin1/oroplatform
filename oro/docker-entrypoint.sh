@@ -45,7 +45,7 @@ if [ "$RUNMODE" = "update" ]; then
     php -d memory_limit=2g ./bin/console oro:platform:update --env=prod --force --skip-assets
 
     echo "building and installing assets"
-    php -d memory_limit=2g ./bin/console oro:assets:install --env=prod --timeout 5000 -n
+    nice --adjustment=-15 php -d memory_limit=2g ./bin/console oro:assets:install --env=prod -n
     
     # update parameters.yml
     sed -i "s/    installed:              ~/    installed:              '$(date --iso-8601=seconds)'/g" config/parameters.yml
